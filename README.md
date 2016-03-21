@@ -1,0 +1,1 @@
+node.js tool to transfer poloniex.com trollbox chat from websocket to socket
