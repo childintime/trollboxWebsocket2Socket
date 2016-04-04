@@ -78,8 +78,15 @@ connection.onopen = function (session) {
                 //console.log(msg);
         }
         function trollboxEvent (args,kwargs) {
-                broadcast(JSON.stringify(args));
-                //console.log(args);
+            var keys = ["label", "message_id", "nick", "message", "karma"];
+            var chatmessage = {};
+            for (var i=0; i < args.length; i++){
+                chatmessage[keys[i]] = args[i];
+            }
+            
+            var jsonString = JSON.stringify(chatmessage);
+            console.log(args);
+            broadcast(jsonString);
         }
         //session.subscribe('BTC_XMR', marketEvent);
         //session.subscribe('ticker', tickerEvent);
